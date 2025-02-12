@@ -1,5 +1,5 @@
 ---
-title: "Tiny Model"
+title: "Tidy Model"
 author: "Ryan Bell"
 date: "2025-02-11"
 output: html_document
@@ -21,12 +21,14 @@ data(crickets, package = "modeldata")
 names(crickets)
 ```
 
-## Including Plots
+## What is that sound?
 
-You can also embed plots, for example:
+In this report, we examine what factors predict a cricket's chirp rate.
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+
+```{r summary, echo = FALSE}
+summary(crickets)
+``` 
+
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

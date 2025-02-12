@@ -116,14 +116,12 @@ summary(diamonds)
 Loaded diamond data
 
 ```{r temp, echo=False}
-ggplot(diamonds, aes(x = price, y = carat)) + 
-  geom_point() +
-  geom_smooth(method = 'lm') +
-  ggtitle("Plot of Carat to Price") +
-  ylab("Carat") +
-  xlab("Price")
-
-temp_lm <- lm(carat ~ price, diamonds)
-
-summary.lm(temp_lm)
+ggplot(diamonds, aes(x = carat, y = price, color = cut)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm") +
+  labs(title = "Effect of Carat & Cut on Diamond Price",
+       x = "Carat",
+       y = "Price")
 ```
+
+Comparing each of the target variables (Carat, Color, and Cut) by Price shows significant to find differences between each of the cuts depending on their specific carat and cut.

@@ -99,3 +99,10 @@ anova(species_lm, species_x_temp_lm)
 ```
 
 Checked for further interactions but decided to stay within the species model
+
+```{r load data, include = FALSE}
+data(diamonds, package = "ggplot2")
+
+```
+
+Loaded diamond data

@@ -104,10 +104,8 @@ Checked for further interactions but decided to stay within the species model
 
 Without detailed instruction, try to build a linear model of at least three variables to predict the worth of a diamond.
 
-```{r load data, include = FALSE}
+```{r loadDiamonds, include = FALSE}
 data(diamonds, package = "ggplot2")
-name(diamonds)
-
 
 summary(diamonds)
 
@@ -115,7 +113,7 @@ summary(diamonds)
 
 Loaded diamond data
 
-```{r temp, echo=False}
+```{r Diamonds, echo=FALSE}
 ggplot(diamonds, aes(x = carat, y = price, color = cut)) +
   geom_point(alpha = 0.5) +
   geom_smooth(method = "lm") +

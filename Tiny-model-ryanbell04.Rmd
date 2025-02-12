@@ -100,9 +100,30 @@ anova(species_lm, species_x_temp_lm)
 
 Checked for further interactions but decided to stay within the species model
 
+## Predicting the worth of a Diamond
+
+Without detailed instruction, try to build a linear model of at least three variables to predict the worth of a diamond.
+
 ```{r load data, include = FALSE}
 data(diamonds, package = "ggplot2")
+name(diamonds)
+
+
+summary(diamonds)
 
 ```
 
 Loaded diamond data
+
+```{r temp, echo=False}
+ggplot(diamonds, aes(x = price, y = carat)) + 
+  geom_point() +
+  geom_smooth(method = 'lm') +
+  ggtitle("Plot of Carat to Price") +
+  ylab("Carat") +
+  xlab("Price")
+
+temp_lm <- lm(carat ~ price, diamonds)
+
+summary.lm(temp_lm)
+```

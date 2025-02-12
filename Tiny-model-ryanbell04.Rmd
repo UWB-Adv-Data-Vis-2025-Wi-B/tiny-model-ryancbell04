@@ -71,3 +71,31 @@ summary.lm(species_lm)
 
 The plot above shows a comparison of chirp rate between two species of crickets. Showing that the exclamationis species has a higher chirp rate compared to the niveus. However, the species in red has a higher chirp rate they were not tracked at a lower temperature compared to the niveus. This may be interesting to look more into as one cricket species could prefer certain temperatures and would remain inactive during others.
 
+## Interactions
+
+```{r species histogram, echo=FALSE}
+ggplot(crickets, aes(x=rate, fill = species)) +
+  geom_histogram(position = 'identity', alpha = 0.7, bins = 8) +
+  ggtitle("Distribution of the chirp rate of crickets") +
+  xlab('Chirp rate(per min.)')
+
+```
+
+
+```{r interactions, echo=FALSE}
+ggplot(crickets, aes(x = temp, y = rate, color = species)) +
+  geom_point() +
+  geom_smooth(method = 'lm') +
+  ggtitle("Plot of temperature and chirp rate for two species of crickets") +
+  ylab('Chirp rate(per min.)') +
+  xlab('Temperature (Celsius)')
+
+
+species_x_temp_lm <- lm(rate ~ temp + species + temp:species, crickets)
+summary.lm(species_x_temp_lm)
+
+anova(species_lm, species_x_temp_lm)
+  
+```
+
+Checked for further interactions but decided to stay within the species model
